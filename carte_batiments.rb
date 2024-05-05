@@ -62,7 +62,6 @@ class CarteJouerPDF
     @pdf.stroke
   end
 
-
   def draw_card_background(fond_path)
     @pdf.image fond_path, at: [0, @pdf.cursor], width: @pdf.bounds.width, height: @pdf.bounds.height#, fit: [@pdf.bounds.width, @pdf.bounds.height]
   end
@@ -75,37 +74,21 @@ class CarteJouerPDF
     
     @pdf.move_down 15
     # Dessiner le coût de la carte
-    draw_identifiant(carte["coût"])
+    # draw_identifiant(carte["coût"])
 
-    # @pdf.text_box carte["coût"], size: 12, at: [@pdf.bounds.left - 5, @pdf.bounds.top - 20]
+    @pdf.text_box carte["coût"], size: 14, width: 40, align: :center,
+     at: [@pdf.bounds.right - carte["coût"].length * 1.6 - 46, @pdf.bounds.top - 7]
 
-    @pdf.move_down 20
+    @pdf.move_down -14
     @pdf.image image_path, fit: [@pdf.bounds.width - 10, @pdf.bounds.height - 60], position: :center
     
-
     # Dessiner les symboles autour de la carte
     draw_symbols(carte["symboles"])
 
-    @pdf.text_box carte["note"], at: [@pdf.bounds.left + 20, @pdf.bounds.bottom + 110],
-     width: @pdf.bounds.width - 40, height: @pdf.bounds.height - 60, align: :center, size: 10
+    @pdf.text_box carte["note"], at: [@pdf.bounds.left + 30, @pdf.bounds.bottom + 106],
+     width: @pdf.bounds.width - 60, height: @pdf.bounds.height - 60, align: :center, size: 10
 
   end
-
-  def draw_identifiant(identifiant)
-    identifiant_width = 40
-    identifiant_height = 10
-    identifiant_x = @pdf.bounds.width - identifiant_width - 12
-    identifiant_y = @pdf.bounds.top - identifiant_height - 2
-  
-    @pdf.bounding_box([identifiant_x, identifiant_y], width: identifiant_width, height: identifiant_height) do
-      @pdf.fill_color "F0F0F0" # Couleur de fond clair
-      @pdf.stroke_color "222222" # Couleur de contour
-      @pdf.fill_rectangle [0, identifiant_height], identifiant_width, identifiant_height
-      @pdf.fill_color "000000" # Réinitialiser la couleur de remplissage à la valeur par défaut
-      @pdf.text_box identifiant, at: [-12, 10], width: 40, height: 12, align: :right, size: 8  
-    end
-  end
-  
 
   def draw_symbols(symboles)
     symbol_size = 25
@@ -127,15 +110,6 @@ class CarteJouerPDF
       symbole = shuffled_symboles.pop
       @pdf.image "images/#{symbole}.png", at: positions[position], width: symbol_size, height: symbol_size
     end
-
-    # # Dessiner les symboles
-    # symboles.each do |symbole|
-    #   @pdf.image "images/#{symbole}.png", at: positions[:top], width: symbol_size, height: symbol_size
-    #   @pdf.image "images/#{symbole}.png", at: positions[:bottom], width: symbol_size, height: symbol_size
-    #   @pdf.image "images/#{symbole}.png", at: positions[:left], width: symbol_size, height: symbol_size
-    #   @pdf.image "images/#{symbole}.png", at: positions[:right], width: symbol_size, height: symbol_size
-    # end
-
   end
 end
 
