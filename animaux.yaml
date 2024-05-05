@@ -1,0 +1,41 @@
+- Nom: Ours
+  Capacité: "Collecte du Chasseur \n Peut collecter 🥕🥕"
+  Prix: 💰💰💰💰💰💰
+
+- Nom: Faucon
+  Capacité: "Vision Aiguisée\nPeut collecter 💰💰💰.\nOU\n Chasse une souris d’un autre joueur"
+  Prix: 💰💰💰💰💰
+
+- Nom: Loup
+  Capacité: "Chasse Nocturne\nPeut collecter 🌲🌲 ou 🪨🪨\n(au choix du joueur).\n OU \nChasse une poule d’un autre joueur"
+  Prix: 💰💰💰💰💰
+
+- Nom: Chien
+  Capacité: "Chasse en Meute\nPeut collecter un 🌲 et une 🪨."
+  Prix: 💰💰💰
+
+- Nom: Canard
+  Capacité: "Plongée Profonde\nPeut collecter 1 🥕."
+  Prix: 💰💰💰
+
+- Nom: Renard
+  Capacité: "Chasse Agile\nPeut collecter un 🌲 ou une 🪨\n(au choix du joueur)."
+  Prix: 💰💰💰
+
+- Nom: Chat
+  Capacité: "Pêche Habile\nPeut collecter 💰💰.\n OU \nChasse un moineau d’un autre joueur"
+  Prix: 💰💰💰
+
+
+- Nom: Poule
+  Capacité: "Récolte Matinale\nPeut collecter une 🪨."
+  Prix: 💰💰
+
+- Nom: Souris
+  Capacité: "Collecte de Provisions\nPeut collecter un 🌲."
+  Prix: 💰
+
+
+- Nom: Moineau
+  Capacité: "Collecte des Sylphides\nPeut collecter 1 💰."
+  Prix: 💰

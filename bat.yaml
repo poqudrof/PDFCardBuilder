@@ -1,0 +1,37 @@
+- nom: Maison
+  coût: 🪨🪨
+  symboles: 
+    - arbre
+    - clé
+
+- nom: Champs
+  coût: 🌲🌲
+  symboles: 
+    - arbre
+    - clé
+
+- nom: École
+  coût: 🌲🌲🌲🌲🪨
+  symboles: 
+    - arbre
+    - étoile
+    - clé
+
+- nom: Tour de Guet
+  coût: 🌲🪨🪨🪨
+  symboles: 
+    - arbre
+    - étoile
+    - clé
+
+- nom: Manoir
+  coût: 🌲🌲🌲🪨🪨🪨🪨
+  symboles: 
+    - étoile
+    - clé
+
+- nom: Château
+  coût: 🌲🌲🌲🌲🪨🪨🪨🪨🪨
+  symboles: 
+    - étoile
+    - clé
