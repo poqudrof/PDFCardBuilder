@@ -1,0 +1,48 @@
+---
+- nom: Maison
+  coût: "\U0001FAA8\U0001FAA8"
+  symboles:
+  - arbre
+  - clé
+  note: "Cette charmante maisonnette est parfaite pour commencer votre aventure dans
+    le village.\n\U0001F48E"
+- nom: Champs
+  coût: "\U0001F332\U0001F332"
+  symboles:
+  - arbre
+  - clé
+  note: "Ce champ offre de nombreuses opportunités d'agriculture prospère.\n2 champs
+    créent 1 \U0001F955.\n\U0001F48E"
+- nom: École
+  coût: "\U0001F332\U0001F332\U0001F332\U0001F332\U0001FAA8"
+  symboles:
+  - arbre
+  - étoile
+  - clé
+  note: "L'école est un lieu d'apprentissage et d'épanouissement pour les jeunes esprits.\n\U0001F48E\U0001F48E\U0001F48E"
+- nom: Tour de Guet
+  coût: "\U0001F332\U0001FAA8\U0001FAA8\U0001FAA8"
+  symboles:
+  - arbre
+  - étoile
+  - clé
+  note: "La tour de guet est un symbole de sécurité et de vigilance.\n\U0001F48E\U0001F48E\U0001F48E"
+- nom: Manoir
+  coût: "\U0001F332\U0001F332\U0001F332\U0001FAA8\U0001FAA8\U0001FAA8\U0001FAA8"
+  symboles:
+  - étoile
+  - clé
+  note: "Ce magnifique manoir est la demeure idéale pour ceux qui recherchent luxe
+    et confort.\n\U0001F48E\U0001F48E\U0001F48E\U0001F48E\U0001F48E\U0001F48E"
+- nom: Château
+  coût: "\U0001F332\U0001F332\U0001F332\U0001F332\U0001FAA8\U0001FAA8\U0001FAA8\U0001FAA8\U0001FAA8"
+  symboles:
+  - étoile
+  - clé
+  note: "Le château, majestueux et imposant, est le joyau de la région.\n\U0001F48E\U0001F48E\U0001F48E\U0001F48E\U0001F48E\U0001F48E"
+- nom: Scierie
+  coût: "\U0001F332\U0001F332\U0001F332\U0001F332"
+  symboles:
+  - arbre
+  - clé
+  note: Bâtiment qui produit des arbres.

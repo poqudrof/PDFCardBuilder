@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Element</title>
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>Add Element</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <form action="<%= @edit_mode ? '/update_element' : '/add_element' %>" method="post">
+          <fieldset>
+            <legend><%= @edit_mode ? 'Edit Element' : 'Add Element' %></legend>
+            <% if @edit_mode %>
+              <input type="hidden" name="edit_index" value="<%= @edit_index %>">
+            <% end %>
+            <div class="form-group">
+              <label for="nom">Nom:</label>
+              <input type="text" id="nom" name="nom" class="form-control" value="<%= @edit_mode ? @data[@edit_index]['nom'] : '' %>">
+            </div>
+            <div class="form-group">
+              <label for="coût">Coût:</label>
+              <input type="text" id="coût" name="coût" class="form-control" value="<%= @edit_mode ? @data[@edit_index]['coût'] : '' %>">
+            </div>
+            <div class="form-group">
+              <label for="symboles">Symboles (separated by commas):</label>
+              <input type="text" id="symboles" name="symboles" class="form-control" value="<%= @edit_mode ? @data[@edit_index]['symboles'].join(', ') : '' %>">
+            </div>
+            <div class="form-group">
+              <label for="note">Note:</label>
+              <textarea id="note" name="note" class="form-control"><%= @edit_mode ? @data[@edit_index]['note'] : '' %></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary"><%= @edit_mode ? 'Update Element' : 'Add Element' %></button>
+            <% if @edit_mode %>
+              <a href="/" class="btn btn-secondary">Cancel</a>
+            <% end %>
+          </fieldset>
+        </form>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <h2>Existing Data:</h2>
+        <ul>
+          <% @data.each_with_index do |element, index| %>
+            <li>
+              <strong>Nom:</strong> <%= element['nom'] %><br>
+              <strong>Coût:</strong> <%= element['coût'] %><br>
+              <strong>Symboles:</strong> <%= element['symboles'].join(', ') %><br>
+              <strong>Note:</strong> <%= element['note'] %><br>
+              <form action="/edit_element" method="post">
+                <input type="hidden" name="edit_index" value="<%= index %>">
+                <button type="submit" class="btn btn-info">Edit</button>
+              </form>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
