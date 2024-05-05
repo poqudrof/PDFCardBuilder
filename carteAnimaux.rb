@@ -74,12 +74,32 @@ class CarteJouerPDF
   def draw_card_content(titre, identifiant, image_path, texte)
     @pdf.move_down 15
     @pdf.text titre, align: :center, size: 14, style: :bold
-    @pdf.text_box identifiant, at: [@pdf.bounds.width - 40- 14, @pdf.bounds.top- 14], width: 40, height: 12, align: :right, size: 8
+    
+    draw_identifiant(identifiant)
+
+    # @pdf.text_box identifiant, at: [@pdf.bounds.width - 40- 14, @pdf.bounds.top- 14], width: 40, height: 12, align: :right, size: 8
     @pdf.move_down 10
     @pdf.image image_path, fit: [@pdf.bounds.width - 10, @pdf.bounds.height - 60], position: :center
     @pdf.move_down 30
     @pdf.text_box texte, at: [@pdf.bounds.left + 20, @pdf.bounds.bottom + 90], width: @pdf.bounds.width - 40, height: @pdf.bounds.height - 60, align: :center, size: 10
 
+  end
+
+  def draw_identifiant(identifiant)
+    identifiant_width = 40
+    identifiant_height = 10
+    identifiant_x = @pdf.bounds.width - identifiant_width - 4
+    identifiant_y = @pdf.bounds.top - identifiant_height - 2
+  
+    @pdf.bounding_box([identifiant_x, identifiant_y], width: identifiant_width, height: identifiant_height) do
+      @pdf.fill_color "F0F0F0" # Couleur de fond clair
+      @pdf.stroke_color "222222" # Couleur de contour
+      @pdf.fill_rectangle [0, identifiant_height], identifiant_width, identifiant_height
+      @pdf.fill_color "000000" # Réinitialiser la couleur de remplissage à la valeur par défaut
+     #  @pdf.text identifiant, align: :right, valign: :center, size: 8
+      @pdf.text_box identifiant, at: [-12, 10], width: 40, height: 12, align: :right, size: 8
+   
+    end
   end
   
 end
@@ -89,8 +109,6 @@ font_path = "OpenSans-VariableFont_wdth,wght.ttf" # Remplacez par le chemin vers
 carte_pdf = CarteJouerPDF.new(font_path)
 
 carte_pdf.add_carte_from_yaml("animaux.yaml", "fond1.png", "logo.png")
-# carte_pdf.add_carte("Titre de la carte 1", "AB", "image1.png", "fond1.png", "Phrase 1\nPhrase 2\nPhrase 3\nPhrase 4", "logo.png")
-#carte_pdf.add_carte("Titre de la carte 2", "CD", "image2.png", "fond2.png", "Phrase 5\nPhrase 6\nPhrase 7\nPhrase 8", "logo.png")
 carte_pdf.generate_pdf("cartes.pdf")
 
 
