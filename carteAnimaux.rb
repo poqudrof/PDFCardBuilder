@@ -20,31 +20,35 @@ class CarteJouerPDF
     @pdf.font("OpenSans")
   end
 
+
   def add_carte_from_yaml(yaml_file, fond_path, carte_logo_path)
-    animaux =  YAML.load_file(yaml_file)
+    animaux = YAML.load_file(yaml_file)
     
-    animaux.each do |animal|
-      animal["image"] = "images/#{animal['Nom'].downcase.gsub(' ', '_')}.png"
-      add_carte(animal["Nom"], animal["Prix"], animal["image"], fond_path, animal["Capacité"], carte_logo_path)
+    @pdf.move_up(-50)
+
+    animaux.each_slice(2) do |slice|
+      slice.each_with_index do |animal, index|
+        x_position = index.even? ? 0 : mm_to_pt(70) # Définir la position X en fonction de la parité de l'index
+        y_position = @pdf.cursor
+  
+        if y_position < mm_to_pt(88) # Si la hauteur restante n'est pas suffisante pour dessiner une carte complète, démarrer une nouvelle page
+          @pdf.start_new_page
+          @pdf.move_up(-50)
+          y_position = @pdf.cursor # Réinitialiser la position Y
+        end        
+  
+        @pdf.bounding_box([x_position, y_position], width: mm_to_pt(62), height: mm_to_pt(88)) do
+          draw_card_background(fond_path)
+          draw_rounded_card
+          draw_logo(carte_logo_path)
+          draw_card_content(animal["Nom"], animal["Prix"], "images/#{animal['Nom'].downcase.gsub(' ', '_')}.png", animal["Capacité"])
+        end
+
+        @pdf.move_up mm_to_pt(88) if index.even?
+      end
+
+      @pdf.move_up -10
     end
-  end
-
-  def add_carte(titre, identifiant, image_path, fond_path, texte, carte_logo_path)
-    card_width = mm_to_pt(62)
-    card_height = mm_to_pt(88)
-
-    if @pdf.cursor < card_height
-      @pdf.start_new_page
-    end
-
-    @pdf.bounding_box([0, @pdf.cursor], width: card_width, height: card_height) do
-      draw_card_background(fond_path)
-      draw_rounded_card
-      draw_logo(carte_logo_path)
-      draw_card_content(titre, identifiant, image_path, texte)
-    end
-
-    @pdf.move_down 10
   end
 
   def generate_pdf(file_name)

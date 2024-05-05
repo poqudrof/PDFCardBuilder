@@ -17,26 +17,34 @@ class CarteJouerPDF
 
   def add_cartes_from_yaml(yaml_file, fond_path)
     cartes = YAML.load_file(yaml_file)
-    cartes.each { |carte| add_carte(carte, fond_path) }
-  end 
+    
+    @pdf.move_up(-50)
 
-  def add_carte(carte, fond_path)
-    p "Loading card #{carte}..."
-    @pdf.start_new_page unless @pdf.cursor == @pdf.bounds.height
+    cartes.each_slice(2) do |slice|
+      slice.each_with_index do |carte, index|
+        x_position = index.even? ? 0 : mm_to_pt(70) # Définir la position X en fonction de la parité de l'index
+        y_position = @pdf.cursor
+  
+        if y_position < mm_to_pt(88) # Si la hauteur restante n'est pas suffisante pour dessiner une carte complète, démarrer une nouvelle page
+          @pdf.start_new_page
+          @pdf.move_up(-50)
+          y_position = @pdf.cursor # Réinitialiser la position Y
+        end
+  
+        @pdf.bounding_box([x_position, y_position], width: mm_to_pt(62), height: mm_to_pt(88)) do
+          draw_card_background(fond_path)
+          draw_rounded_card
+          draw_card_content(carte, "images/#{carte['nom'].downcase.gsub(' ', '_')}.png")
+        end
 
-    card_width = mm_to_pt(62)
-    card_height = mm_to_pt(88)
-
-    image_path = "images/#{carte['nom'].downcase.gsub(' ', '_')}.png"
-   
-    @pdf.bounding_box([0, @pdf.cursor], width: card_width, height: card_height) do
-      draw_card_background(fond_path)
-      draw_rounded_card
-      draw_card_content(carte, image_path)
+        @pdf.move_up mm_to_pt(88) if index.even?
+        
+      end
+      
+      @pdf.move_up -10
     end
-
-    @pdf.move_down 10
   end
+  
 
   def generate_pdf(file_name)
     @pdf.render_file(file_name)
@@ -61,7 +69,7 @@ class CarteJouerPDF
 
   def draw_card_content(carte, image_path)
 
-    @pdf.move_down 30
+    @pdf.move_down 25
 
     @pdf.text carte["nom"], align: :center, size: 14, style: :bold
     
@@ -69,11 +77,18 @@ class CarteJouerPDF
     # Dessiner le coût de la carte
     draw_identifiant(carte["coût"])
 
-    @pdf.move_down 45
+    # @pdf.text_box carte["coût"], size: 12, at: [@pdf.bounds.left - 5, @pdf.bounds.top - 20]
+
+    @pdf.move_down 20
     @pdf.image image_path, fit: [@pdf.bounds.width - 10, @pdf.bounds.height - 60], position: :center
     
+
     # Dessiner les symboles autour de la carte
     draw_symbols(carte["symboles"])
+
+    @pdf.text_box carte["note"], at: [@pdf.bounds.left + 20, @pdf.bounds.bottom + 110],
+     width: @pdf.bounds.width - 40, height: @pdf.bounds.height - 60, align: :center, size: 10
+
   end
 
   def draw_identifiant(identifiant)
@@ -87,9 +102,7 @@ class CarteJouerPDF
       @pdf.stroke_color "222222" # Couleur de contour
       @pdf.fill_rectangle [0, identifiant_height], identifiant_width, identifiant_height
       @pdf.fill_color "000000" # Réinitialiser la couleur de remplissage à la valeur par défaut
-     #  @pdf.text identifiant, align: :right, valign: :center, size: 8
-      @pdf.text_box identifiant, at: [-12, 10], width: 40, height: 12, align: :right, size: 8
-   
+      @pdf.text_box identifiant, at: [-12, 10], width: 40, height: 12, align: :right, size: 8  
     end
   end
   
@@ -101,8 +114,8 @@ class CarteJouerPDF
     positions = {
       top:    [@pdf.bounds.width / 2 - symbol_size/2,  @pdf.bounds.top - 5],
       bottom: [@pdf.bounds.width / 2 - symbol_size/2,  @pdf.bounds.bottom + 5 + symbol_size],
-      left:   [@pdf.bounds.left + 5, @pdf.bounds.height / 2 - symbol_size/2 - 28],
-      right:  [@pdf.bounds.right - symbol_size - 5, @pdf.bounds.height / 2 - symbol_size/2 - 28]
+      left:   [@pdf.bounds.left + 5, @pdf.bounds.height / 2 - symbol_size/2 - 15],
+      right:  [@pdf.bounds.right - symbol_size - 5, @pdf.bounds.height / 2 - symbol_size/2 - 15]
     }
 
 

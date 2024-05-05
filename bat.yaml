@@ -1,37 +1,43 @@
 - nom: Maison
   coût: 🪨🪨
-  symboles: 
+  symboles:
     - arbre
     - clé
+  note: "Cette charmante maisonnette est parfaite pour commencer votre aventure dans le village.\n💎"
+  points: 💎
 
 - nom: Champs
   coût: 🌲🌲
-  symboles: 
+  symboles:
     - arbre
     - clé
+  note: "Ce champ offre de nombreuses opportunités d'agriculture prospère.\n2 champs créent 1 🥕.\n💎"
 
 - nom: École
   coût: 🌲🌲🌲🌲🪨
-  symboles: 
+  symboles:
     - arbre
     - étoile
     - clé
+  note: "L'école est un lieu d'apprentissage et d'épanouissement pour les jeunes esprits.\n💎💎💎"
 
 - nom: Tour de Guet
   coût: 🌲🪨🪨🪨
-  symboles: 
+  symboles:
     - arbre
     - étoile
     - clé
-
+  note: "La tour de guet est un symbole de sécurité et de vigilance.\n💎💎💎"
 - nom: Manoir
   coût: 🌲🌲🌲🪨🪨🪨🪨
-  symboles: 
+  symboles:
     - étoile
     - clé
+  note: "Ce magnifique manoir est la demeure idéale pour ceux qui recherchent luxe et confort.\n💎💎💎💎💎💎"
 
 - nom: Château
   coût: 🌲🌲🌲🌲🪨🪨🪨🪨🪨
-  symboles: 
+  symboles:
     - étoile
     - clé
+  note: "Le château, majestueux et imposant, est le joyau de la région.\n💎💎💎💎💎💎"
