@@ -22,6 +22,8 @@ class CarteJouerPDF
 
     cartes.each_slice(2) do |slice|
       slice.each_with_index do |carte, index|
+        
+    
         x_position = index.even? ? 0 : mm_to_pt(70) # Définir la position X en fonction de la parité de l'index
         y_position = @pdf.cursor
   
@@ -34,6 +36,7 @@ class CarteJouerPDF
         @pdf.bounding_box([x_position, y_position], width: mm_to_pt(62), height: mm_to_pt(88)) do
           draw_card_background(fond_path)
           draw_rounded_card
+          p "loading #{carte['nom'].downcase.gsub(' ', '_')}.png"
           draw_card_content(carte, "images/#{carte['nom'].downcase.gsub(' ', '_')}.png")
         end
 
@@ -80,6 +83,7 @@ class CarteJouerPDF
      at: [@pdf.bounds.right - carte["coût"].length * 1.6 - 46, @pdf.bounds.top - 7]
 
     @pdf.move_down -14
+
     @pdf.image image_path, fit: [@pdf.bounds.width - 10, @pdf.bounds.height - 60], position: :center
     
     # Dessiner les symboles autour de la carte
@@ -103,7 +107,7 @@ class CarteJouerPDF
 
 
     # Mélanger les symboles de manière aléatoire
-    shuffled_symboles = (symboles + symboles).shuffle
+    shuffled_symboles = (symboles + symboles + symboles+ symboles).shuffle
 
     # Remplir un tableau de taille 4 avec des symboles aléatoires
     positions.keys.each do |position|

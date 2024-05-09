@@ -1,41 +1,133 @@
-- Nom: Ours
-  Capacité: "Collecte du Chasseur \n Peut collecter 🥕🥕"
-  Prix: 💰💰💰💰💰💰
+## deck de cartes animaux
+## T1  - 28 cartes
+## 8 Souris 
+## 12 moineaux
+## 4 Renards
+## 4 Poules
+## T2 - 14 cartes
+## 6 Chats -> mange moineau
+## 4 chiens 
+## 4 canards
+## T3 - 14 cartes
+## 4 Faucons -> mange moineau
+## 6 Loups -> mange souris ou poule
+## 4 Ours
 
-- Nom: Faucon
-  Capacité: "Vision Aiguisée\nPeut collecter 💰💰💰.\nOU\n Chasse une souris d’un autre joueur"
-  Prix: 💰💰💰💰💰
-
-- Nom: Loup
-  Capacité: "Chasse Nocturne\nPeut collecter 🌲🌲 ou 🪨🪨\n(au choix du joueur).\n OU \nChasse une poule d’un autre joueur"
-  Prix: 💰💰💰💰💰
-
-- Nom: Chien
-  Capacité: "Chasse en Meute\nPeut collecter un 🌲 et une 🪨."
-  Prix: 💰💰💰
-
-- Nom: Canard
-  Capacité: "Plongée Profonde\nPeut collecter 1 🥕."
-  Prix: 💰💰💰
-
-- Nom: Renard
-  Capacité: "Chasse Agile\nPeut collecter un 🌲 ou une 🪨\n(au choix du joueur)."
-  Prix: 💰💰💰
-
-- Nom: Chat
-  Capacité: "Pêche Habile\nPeut collecter 💰💰.\n OU \nChasse un moineau d’un autre joueur"
-  Prix: 💰💰💰
-
-
-- Nom: Poule
-  Capacité: "Récolte Matinale\nPeut collecter une 🪨."
-  Prix: 💰💰
+## Total de 56 cartes
 
 - Nom: Souris
   Capacité: "Collecte de Provisions\nPeut collecter un 🌲."
-  Prix: 💰
-
+  Prix: 🥇
+  tier: 1
 
 - Nom: Moineau
-  Capacité: "Collecte des Sylphides\nPeut collecter 1 💰."
-  Prix: 💰
+  Capacité: "Collecte des Sylphides\nPeut collecter 1 🥇."
+  Prix: 🥇
+  tier: 1
+
+- Nom: Souris
+  Capacité: "Collecte de Provisions\nPeut collecter un 🌲."
+  Prix: 🥇
+  tier: 1
+
+- Nom: Moineau
+  Capacité: "Collecte des Sylphides\nPeut collecter 1 🥇."
+  Prix: 🥇
+  tier: 1
+
+- Nom: Souris
+  Capacité: "Collecte de Provisions\nPeut collecter un 🌲."
+  Prix: 🥇
+  tier: 1
+
+- Nom: Moineau
+  Capacité: "Collecte des Sylphides\nPeut collecter 1 🥇."
+  Prix: 🥇
+  tier: 1
+
+- Nom: Souris
+  Capacité: "Collecte de Provisions\nPeut collecter un 🌲."
+  Prix: 🥇
+  tier: 1
+- Nom: Moineau
+  Capacité: "Collecte des Sylphides\nPeut collecter 1 🥇."
+  Prix: 🥇
+  tier: 1
+
+- Nom: Souris
+  Capacité: "Collecte de Provisions\nPeut collecter un 🌲."
+  Prix: 🥇
+  tier: 1
+- Nom: Moineau
+  Capacité: "Collecte des Sylphides\nPeut collecter 1 🥇."
+  Prix: 🥇
+  tier: 1
+
+
+- Nom: Loup
+  Capacité: "Chasse Nocturne\nPeut collecter 🌲🌲 ou 🪨🪨\n(au choix).\n Chasse une poule ou souris quand acheté."
+  Prix: 🥇🥇🥇🥇🥇
+  tier: 3
+
+
+- Nom: Chien
+  Capacité: "Chasse en Meute\nPeut collecter un 🌲 et une 🪨."
+  Prix: 🥇🥇🥇
+  tier: 2
+  
+- Nom: Canard
+  Capacité: "Plongée Profonde\n Il a 🥕🥕🥕🥕, pioche 2 cartes."
+  Prix: 🥇🥇🥇
+  tier: 2
+- Nom: Renard
+  Capacité: "Chasse Agile\nPeut collecter un 🌲 ou une 🪨\n(au choix)."
+  Prix: 🥇🥇
+  tier: 1
+- Nom: Chat
+  Capacité: "Pêche Habile\nPeut collecter 🥇🥇.\nChasse un moineau quand il est acheté."
+  Prix: 🥇🥇🥇
+  tier: 2
+- Nom: Poule
+  Capacité: "Récolte Matinale\nPeut collecter une 🪨."
+  Prix: 🥇🥇
+  tier: 1
+
+
+- Nom: Loup
+  Capacité: "Chasse Nocturne\nPeut collecter 🌲🌲 ou 🪨🪨\n(au choix du joueur).\n OU \nChasse une poule d’un autre joueur"
+  Prix: 🥇🥇🥇🥇🥇
+  tier: 3
+
+
+- Nom: Chien
+  Capacité: "Chasse en Meute\nPeut collecter un 🌲 et une 🪨."
+  Prix: 🥇🥇🥇
+  tier: 2
+- Nom: Canard
+  Capacité: "Plongée Profonde\n Il a 🥕🥕🥕🥕, pioche 2 cartes."
+  Prix: 🥇🥇🥇
+  tier: 2
+- Nom: Renard
+  Capacité: "Chasse Agile\nPeut collecter un 🌲 ou une 🪨\n(au choix du joueur)."
+  Prix: 🥇🥇
+  tier: 1
+- Nom: Chat
+  Capacité: "Pêche Habile\nPeut collecter 🥇🥇.\nChasse un moineau quand il est acheté."
+  Prix: 🥇🥇🥇
+  tier: 2
+  
+- Nom: Poule
+  Capacité: "Récolte Matinale\nPeut collecter une 🪨."
+  Prix: 🥇🥇
+  tier: 1
+
+
+- Nom: Ours
+  Capacité: "Collecte du Chasseur \n Peut collecter 🥕🥕🥕🥕, Pioche 4 cartes"
+  Prix: 🥇🥇🥇🥇🥇
+  tier: 3
+
+- Nom: Faucon
+  Capacité: "Vision Aiguisée\nPeut collecter 🥇🥇🥇.\nChasse un moineau quand il est acheté."
+  Prix: 🥇🥇🥇🥇🥇
+  tier: 3

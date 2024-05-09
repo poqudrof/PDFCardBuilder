@@ -1,5 +1,15 @@
+## Deck: 
+## 8 Champs 
+## 6 maisons 
+## 3 Écoles 
+## 6 tour de Guet 
+## 2 Manoirs
+## 2 Chateaux
+
+## Total de 27 cartes
+
 - nom: Maison
-  coût: 🪨🪨
+  coût: 🪨
   symboles:
     - arbre
     - clé
@@ -10,7 +20,35 @@
   symboles:
     - arbre
     - clé
-  note: "Ce champ offre de nombreuses opportunités d'agriculture prospère.\n2 champs créent 1 🥕.\n💎"
+  note: "Ce champs permet l'agriculture.\nPlacer à côté d’une maison.\n2 champs créent 1 🥕.\n💎"
+
+- nom: Maison
+  coût: 🪨
+  symboles:
+    - arbre
+    - clé
+  note: "Cette charmante maisonnette est parfaite pour commencer votre aventure dans le village.\n💎"
+
+- nom: Champs
+  coût: 🌲🌲
+  symboles:
+    - arbre
+    - clé
+  note: "Ce champs permet l'agriculture.\nPlacer à côté d’une maison.\n2 champs créent 1 🥕.\n💎"
+
+- nom: Maison
+  coût: 🪨
+  symboles:
+    - arbre
+    - clé
+  note: "Cette charmante maisonnette est parfaite pour commencer votre aventure dans le village.\n💎"
+
+- nom: Champs
+  coût: 🌲🌲
+  symboles:
+    - arbre
+    - clé
+  note: "Ce champs permet l'agriculture.\nPlacer à côté d’une maison.\n2 champs créent 1 🥕.\n💎"
 
 - nom: École
   coût: 🌲🌲🌲🌲🪨
@@ -18,25 +56,45 @@
     - arbre
     - étoile
     - clé
-  note: "L'école est un lieu d'apprentissage et d'épanouissement pour les jeunes esprits.\n💎💎💎"
+    - clé
+  note: "L'école est un lieu d'apprentissage et d'épanouissement pour les jeunes esprits.\n💎💎💎💎"
 
 - nom: Tour de Guet
   coût: 🌲🪨🪨🪨
   symboles:
     - arbre
     - étoile
-    - clé
-  note: "La tour de guet est un symbole de sécurité et de vigilance.\n💎💎💎"
-- nom: Manoir
-  coût: 🌲🌲🌲🪨🪨🪨🪨
-  symboles:
     - étoile
     - clé
-  note: "Ce magnifique manoir est la demeure idéale pour ceux qui recherchent luxe et confort.\n💎💎💎💎💎💎"
+  note: "La tour de guet est un symbole de sécurité et de vigilance.\n💎💎💎"
+
+- nom: École
+  coût: 🌲🌲🌲🌲🪨
+  symboles:
+    - arbre
+    - étoile
+    - clé
+    - clé
+  note: "L'école est un lieu d'apprentissage et d'épanouissement pour les jeunes esprits.\n💎💎💎💎"
+
+- nom: Tour de Guet
+  coût: 🌲🪨🪨🪨
+  symboles:
+    - arbre
+    - étoile
+    - étoile
+    - clé
+  note: "La tour de guet est un symbole de sécurité et de vigilance.\n💎💎💎"
+
+
+- nom: Manoir
+  coût: 🌲🌲🪨🪨🪨
+  symboles:
+    - étoile
+  note: "Ce magnifique manoir est la demeure idéale pour ceux qui recherchent luxe et confort.\n💎💎💎💎"
 
 - nom: Château
   coût: 🌲🌲🌲🌲🪨🪨🪨🪨🪨
   symboles:
     - étoile
-    - clé
   note: "Le château, majestueux et imposant, est le joyau de la région.\n💎💎💎💎💎💎"

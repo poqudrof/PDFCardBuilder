@@ -40,8 +40,8 @@ class CarteJouerPDF
         @pdf.bounding_box([x_position, y_position], width: mm_to_pt(62), height: mm_to_pt(88)) do
           draw_card_background(fond_path)
           draw_rounded_card
-          draw_logo(carte_logo_path, animal["tier"].to_i)
-          draw_card_content(animal["Nom"], animal["Prix"], "images/#{animal['Nom'].downcase.gsub(' ', '_')}.png", animal["Capacité"])
+          # draw_logo(carte_logo_path)
+          # draw_card_content(animal["Nom"], animal["Prix"], "images/#{animal['Nom'].downcase.gsub(' ', '_')}.png", animal["Capacité"])
         end
 
         @pdf.move_up mm_to_pt(88) if index.even?
@@ -67,12 +67,8 @@ class CarteJouerPDF
     @pdf.stroke
   end
 
-  def draw_logo(carte_logo_path, tier)
-
-    @pdf.image carte_logo_path, at: [5, @pdf.cursor - 5], width: 16, height: 16
-    @pdf.image carte_logo_path, at: [25, @pdf.cursor - 5], width: 16, height: 16 if tier > 1
-    @pdf.image carte_logo_path, at: [45, @pdf.cursor - 5], width: 16, height: 16 if tier > 2
-
+  def draw_logo(carte_logo_path)
+    @pdf.image carte_logo_path, at: [5, @pdf.cursor - 5], width: 20, height: 20
   end
 
   def draw_card_background(fond_path)
@@ -103,7 +99,12 @@ end
 font_path = "OpenSans-VariableFont_wdth,wght.ttf" # Remplacez par le chemin vers votre police TTF
 carte_pdf = CarteJouerPDF.new(font_path)
 
-carte_pdf.add_carte_from_yaml("animaux.yaml", "fond1.png", "logo.png")
-carte_pdf.generate_pdf("cartes.pdf")
+carte_pdf.add_carte_from_yaml("animaux.yaml", "fond4.png", "logo.png")
+carte_pdf.generate_pdf("cartes-back.pdf")
+
+carte_pdf = CarteJouerPDF.new(font_path)
+
+carte_pdf.add_carte_from_yaml("animaux.yaml", "fond5.png", "logo.png")
+carte_pdf.generate_pdf("cartes-back2.pdf")
 
 
